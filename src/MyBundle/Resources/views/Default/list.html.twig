@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+          <h1>List of GitHub Symfony Repositories</h1>
+			<table border='0' cellspacing='0' cellpadding='0' class='list'>
+			     <tr class='bold'>
+				    <td class='list-header' width="20%">Avatar</td>
+					<td class='list-header' width="80%">Repository Name</td>
+			    </tr>
+				{% for repository in repositories %}
+					<tr>
+						<td><img src={{ repository.owner.avatar_url}} height='30px' width='30px'/></td>
+						<td><a class='link' href={{ repository.html_url}}> {{ repository.full_name}} </a></td>
+					</tr>
+				{% endfor %}
+			</table>
+        </div>
+    </div>
+{% endblock %}
